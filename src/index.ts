@@ -7,4 +7,3 @@ console.log(typeof name);
 
 let booleanVale: boolean = true;
 console.log(booleanVale);
-console.log(typeof booleanVale);
