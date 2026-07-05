@@ -7,3 +7,6 @@ console.log(typeof name);
 
 let booleanVale: boolean = true;
 console.log(booleanVale);
+
+let object:String = "Manish";
+console.log(object);
