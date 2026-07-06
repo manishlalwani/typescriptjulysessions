@@ -1,4 +1,21 @@
 
+
+//can not have a method body - abstract methods
+//prototype - method declaration only
+//No business logic
+//can not create object of interface
+//100 % Abstraction
+
+class BankPolicy {
+    creditAlertPolicy(): void {
+        console.log("Credit Should be Negative");
+    }
+}
+
+interface worldBank {
+    registerationPolicy(): void;
+}
+
 interface Bank {
     deposit(): number;
     withdrawal(): number;
@@ -6,7 +23,10 @@ interface Bank {
     closeAccount(): void;
 }
 
-class HDFC implements Bank {
+class HDFC extends BankPolicy implements Bank, worldBank {
+    registerationPolicy(): void {
+        console.log("Implementation of World bank method");
+    }
     deposit(): number {
         console.log('Enter Deposit via Cheque');
         return 1;
@@ -56,6 +76,9 @@ hfdc.deposit();
 hfdc.withdrawal();
 hfdc.loanDisbursement();
 hfdc.closeAccount();
+hfdc.creditAlertPolicy();
+hfdc.registerationPolicy();
+
 console.log('\t');
 console.log('******SBI Bank Account****');
 console.log('\t');
@@ -65,3 +88,14 @@ sbi.deposit();
 sbi.withdrawal();
 sbi.renewLoan();
 sbi.closeAccount();
+console.log('*************Top Casting*********');
+let hdfc2: Bank = new HDFC();
+hdfc2.openAccount();
+hdfc2.deposit();
+hdfc2.withdrawal();
+hdfc2.closeAccount();
+//load disbursement is not available for Bank reference varaible as it belongs to child class object
+
+//DownCasting - NA
+
+
